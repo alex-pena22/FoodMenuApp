@@ -1,0 +1,44 @@
+body{
+    background-color:black;
+    margin: 0px;
+}
+.pacMan_title {
+    width: 500px;
+    margin-left: 460px;
+}
+#world{
+    border: 0px white;
+   margin: 0px,0px,0px,0px;
+    width: 1186px;
+    height: 600px;
+}
+div.row{
+   display: block;
+   height: 50px;
+}
+div.row div{
+    display:inline-block;
+    height: 50px;
+    width: 50px;  
+    margin:0; 
+}
+#pacman{
+    background-image: url('images/pacman.gif');
+    position: absolute;
+    background-size: cover;
+    height: 50px;
+    width:50px;
+}
+.coin{
+    background-image: url('images/coin.gif');
+    background-size: cover;
+    image-orientation: unset;
+    display: block;
+}
+.brick{
+    background-color: blue;
+    border-style: inherit;
+}
+.empty{
+    background-color: black;
+}

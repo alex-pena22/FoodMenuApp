@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="pacman.css">
+    <title>PacMan</title>
+</head>
+<body>
+    <!-- <img src="images/title_pacman.gif" class="pacMan_title"> -->
+        <div id='pacman'></div>
+        <div id='world'> </div>
+    
+    
+</body>
+<script>
+    var map = [
+        [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+        [2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+        [2,1,1,1,1,1,2,1,1,2,1,1,1,1,1,1,1,1,1,1,1,2],
+        [2,1,2,1,1,2,2,1,1,2,1,2,2,1,1,2,1,1,1,2,1,2],
+        [2,1,2,1,1,2,2,1,1,2,1,2,2,1,1,2,2,1,1,2,1,2],
+        [2,1,2,1,1,1,2,1,1,2,1,1,1,1,1,2,2,1,1,2,1,2],
+        [2,1,2,1,1,1,1,1,1,2,2,2,2,1,1,2,1,1,1,2,1,2],
+        [2,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2],
+        [2,1,1,1,1,1,1,1,2,2,2,2,2,1,1,1,1,2,2,2,1,2],
+        [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+        [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+    ];
+
+    var pacman_position =
+    {
+        x:1,
+        y:1,
+    }
+    
+    //displaying the world using DOM 
+    function displayWorld(){
+        var output = ''
+        for (var i =0 ; i < map.length ; i++){ // first loop to check the index of the row of arrays.
+            output += "\n<div class='row'\n>"
+            for(var j=0; j< map[i].length ;j++){ // Second loop to check the index of the array.
+                if (map[i][j] == 1){ // condition to check if its a coin represented as 1
+                    output += "<div class='coin'></div>"
+                }
+                else if(map[i][j]== 2){ // condition to check if its a brick represented as 2
+                    output+= "<div class= 'brick'></div>"
+                }
+                else if(map[i][j] == 3){ //condtion to check if its an empty div represnted as 3
+                    output+= "<div class='pacman'></div>"
+                }
+            }
+            output += "\n</div>"
+        }
+        document.getElementById('world').innerHTML=output; // accessing DOM to display the MARKUP represented as output
+    }
+    
+    // displaying PACMAN
+        function displayPacman(){  
+        document.getElementById('pacman').style.top = pacman_position.y*50+"px";  
+        document.getElementById('pacman').style.left = pacman_position.x*50+"px";
+    }
+
+
+    displayWorld();
+    displayPacman();
+
+    // logic when KEY PRESSED
+    document.onkeydown = function(e){
+        if( e.keyCode == 37){ // LEFT KEY
+            pacman_position.x--;
+            // Collison detection condition to check if its a brick after key is pressed. 
+            if(map[pacman_position.y][pacman_position.x] == 2){
+                pacman_position.x++ 
+                console.log(map[pacman_position.y][pacman_position.x])
+            }
+            displayPacman();
+        }
+        else if( e.keyCode == 38){ // UP KEY
+            pacman_position.y--;
+            if(map[pacman_position.y][pacman_position.x] == 2){
+                pacman_position.y++
+                console.log(map[pacman_position.y][pacman_position.x])
+            }
+            displayPacman();
+        }
+        else if( e.keyCode == 39){ // RIGHT KEY
+            pacman_position.x++;
+            if(map[pacman_position.y][pacman_position.x] == 2){
+                pacman_position.x--
+                console.log(map[pacman_position.y][pacman_position.x])
+            }
+            displayPacman();
+        }
+        else if( e.keyCode == 40){ // DOWN KEY
+            pacman_position.y++;
+            if(map[pacman_position.y][pacman_position.x] == 2){
+                pacman_position.y--;
+                console.log(map[pacman_position.y][pacman_position.x])
+            }
+            displayPacman();
+        }
+        // // Collison detection condition to check if its a COIN and Turn in to an empty div using DOM
+        if( map[pacman_position.y][pacman_position.x] == 1){
+            map[pacman_position.y][pacman_position.x] = 3;
+            displayWorld(); // display world 
+        }   
+    }
+</script>
+</html>
