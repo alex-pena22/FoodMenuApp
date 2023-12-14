@@ -1,0 +1,94 @@
+ /* @import url(https://fonts.google.com/); */
+
+body{
+
+    background: linear-gradient(90deg, rgba(204,70,226,1) 29%, rgba(253,29,239,1) 37%, rgba(252,202,69,1) 91%);
+}
+.nicoleSpan{
+    font-family: 'Roboto', sans-serif;
+    color: rgb(137, 29, 119);
+    font-size: 4em;
+    margin-left: 200px;
+}
+.foodSpan{
+    font-family: 'Roboto', sans-serif;
+    color: rgb(137, 29, 119);
+    font-size: 3em;
+}
+.chooseTitle{
+    text-align: right;
+    margin-right: 200px;
+}
+.menuTitle{ 
+    display: inline;
+}
+#menuWrapper{
+    border: 1px solid rgb(3 2 2);
+    height: auto;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    background-color: #ede3e3bd;
+}
+.greeting{
+    border-radius: 10px;
+    padding: 5px;
+    width: 700px;
+    height: auto;
+    text-align: center;
+    margin: 10px auto 10px auto;
+    display: inherit;
+    font-family: fantasy;
+    color:rgb(0, 0,0);
+}
+
+img:hover, li:hover{
+    transform: scale(1.1,1.1);
+    margin-top: 10px;
+}
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 13px;
+    margin:auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.listOfFoods{
+    width: auto;
+    height: auto;
+    margin:20px;
+    border-radius: 10px;
+}
+.listOfDrinks{
+    width: auto;
+    height: auto;
+    border: 1px solid black;
+    margin:20px;
+    background-color: pink;
+    border-radius: 10px;
+}
+li{
+    display: inline-flex;
+    width: 250px;
+    border: 1px solid black;
+    margin: 10px;
+    background-color: whitesmoke;
+    border-radius: 25px;
+    padding: 10px;
+    list-style: none;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+li p{
+    display: inline;
+    text-align: right;
+}
+h4{
+    margin: 15px auto;
+}
+button{
+    border-radius: 5px;
+    width: 100px;
+    margin: auto;
+}
