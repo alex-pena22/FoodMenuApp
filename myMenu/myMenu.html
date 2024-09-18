@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
+        <link rel="stylesheet" href="myMenu.css">
+        <title>Cine Snack</title>
+    </head> 
+    <body>
+        <!-- Header Items -->
+        <header>
+            <h1 class="title">cineSnack</h1>
+            <div onClick="cartToggle()" class="iconWrapper"> 
+                <img class="basketIcon" src="imgs/icons/trolley.png">
+                <!-- <i class="bi bi-cart2"></i> -->
+                <span class="quantity">0</span>
+            </div>
+        </header>
+            <!-- Cart Items -->
+        <div id="cartOverlay" class="cartOverlay">
+            <section id="cartMenu" class="cartMenu">
+                <div class="cartItem">item</div>
+                <button class="close">close</button>
+                <button class="process">procces</button>
+            </section>       
+        </div> 
+
+        <!-- Menu Wrapper -->
+        <menu  id="lisfOfFoods" class="listOfFoods" >
+            <li class="itemCard">
+                <img src="imgs/food/tacos.jpeg">
+                <h4>Tacos</h4>
+                <p>Cost <span class="itemPrice">$8.99</span></p>
+                <button class="orderBtn">add to order</button>
+            </li>
+            <li class="itemCard">
+                <img src="imgs/food/pizza.jpeg" alt="">
+                <h4>Pepperoni Pizza</h4>
+                <p>Cost <span class="itemPrice">$8.99</span></p>
+                <button class="orderBtn">add to order</button>
+            </li>
+                        
+            <li class="itemCard">
+                <img src="imgs/food/eggsAndBacon.jpeg" alt="">
+                <h4>Eggs and Bacon</h4>
+                <p>Cost <span class="itemPrice">$8.99</span></p>
+                <button class="orderBtn">add to order</button>
+            </li>
+            <li class="itemCard">
+                <img src="imgs/food/eggsAndBacon.jpeg" alt="">
+                <h4>Eggs and Bacon</h4>
+                <p>Cost <span class="itemPrice">$8.99</span></p>
+                <button class="orderBtn">add to order</button>
+            </li>
+        </menu>
+        <script type="text/javascript" src="myMenu.js"></script>
+    </body>
+</html>

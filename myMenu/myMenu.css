@@ -1,0 +1,124 @@
+/* @import url(https://fonts.google.com/); */
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+    width: auto;
+
+}
+/****** Header Styles ******/
+header {
+    background-color: rgb(157, 85, 244);
+    display: flex;
+    width: 100%;
+    height: 5rem;
+    padding: 20px;
+}
+header h1{
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+
+}
+header .iconWrapper{
+    height: 60px;
+    width: 60px;
+    display: flex;
+    margin-left: 85%;
+    margin-top: -15px;
+}
+header .basketIcon{
+    padding: 3px;
+    background-color: white;
+    height: 60px;
+    width: 60px;
+}
+header .quantity{
+    font-weight: 300;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    padding: 5px;
+    color: white;
+    background-color: red;
+    margin-left: -20px;
+    margin-top: 5px;
+}
+/****** Cart Styles ******/
+.cartOverlay{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: black;
+    opacity: 50%;
+    position: fixed;
+    z-index: 1;
+    display: none;
+}
+/* Menu and list items*/
+.listOfFoods{
+    border-radius: 15px;
+    width: 80%;
+    height: auto;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: beige;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    list-style-type: none;
+    gap: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+menu .itemCard{
+    border-radius: 10px;
+    padding: 10px;
+    align-items: stretch;
+    text-align: center;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: 1/5;
+    background-color: white;
+}
+menu img{
+    border-radius: 5px;
+    max-width: 100%;
+    display: block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+menu h4{
+    font-family: Arial, Helvetica, sans-serif;
+}
+menu p {
+    font-family:Arial, Helvetica, sans-serif;
+}
+menu .itemPrice{
+    margin-left: 50%;
+    color: rgb(157, 85, 244);
+}
+menu .orderBtn {
+    border-radius: 20px;
+    width: 90%;
+    height: 35px;
+    margin: auto;
+    border: none;
+    background-color: rgb(157, 85, 244);
+    color: white;
+    text-transform: uppercase;
+
+}
+menu .itemCard:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+menu .orderBtn:hover{
+    background-color: #7c33f9a2;
+}
+ /* List of drinks */
+
+
