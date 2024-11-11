@@ -15,7 +15,7 @@ const foodItems = [
         id:"ertyer",
         name:"Eggs and Bacon",
         price: 7.99,
-        image:"Mymenu/imgs/food/eggsAndBacon.jpg"
+        image:"Mymenu/imgs/food/eggsAndBacon.jpeg"
     },
     {
         id:"dfghdf",
