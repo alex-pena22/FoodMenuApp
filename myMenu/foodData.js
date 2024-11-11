@@ -3,7 +3,7 @@ const foodItems = [
         id:"qwerqt",
         name:"Burger",
         price: 8,
-        image:"Mymenu/imgs/food/burger.jpg"
+        image:"Mymenu/imgs/food/burger.jpeg"
     },
     {
         id:"zcxvas",
