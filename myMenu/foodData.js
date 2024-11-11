@@ -1,14 +1,14 @@
-foodItems = [
+const foodItems = [
     {
         id:"qwerqt",
         name:"Burger",
-        price: 8.99,
+        price: 8,
         image:"Mymenu/imgs/food/burger.jpg"
     },
     {
         id:"zcxvas",
         name:"Dumplings",
-        price: 5.99,
+        price: 5,
         image:"Mymenu/imgs/food/dumplings.jpeg"
     },
     {
@@ -71,26 +71,4 @@ foodItems = [
         price: 9.99,
         image:"Mymenu/imgs/food/tacos.jpeg",
     }
-]
-drinkItems = [
-{
-    id:"sprt01",
-    name:"Sprite",
-    price:"2.99"
-},
-{
-    id:"Coke02",
-    name:"Coke1",
-    price:"2.99"
-},
-{
-    id:"Lemnade03",
-    name:"Lemonade",
-    price:"3.99"
-},
-{
-    id:"Drppr04",
-    name:"Dr Pepper",
-    price:"2.99"
-}
 ]

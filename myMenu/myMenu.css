@@ -1,4 +1,13 @@
-/* @import url(https://fonts.google.com/); */
+:root {
+    --primary: #1b263b;     /* var(--primary) */
+    --secondary: #1b263b;  /* var(--secondary) */
+    --increment: #415a77;   /* var(--increment) */
+    --decrement: #778da9;   /* var(--decrement) */
+    --menuCart: #e0e1dd;    /* var(--menuCart)  */
+    --closeCart: #6c757d;    /* var(--closcart)  */
+    --primaryFont: roboto;  /* var(--primaryFont) */
+}
+
 *{
     margin: 0px;
     padding: 0px;
@@ -9,116 +18,370 @@ body{
     width: auto;
 
 }
-/****** Header Styles ******/
+a{
+    text-decoration: none;
+    color: white;
+}
+
+/****** 
+
+Header Styles 
+
+******/
 header {
-    background-color: rgb(157, 85, 244);
+    background-color: var(--primary);
     display: flex;
+    justify-content: space-between;
     width: 100%;
     height: 5rem;
     padding: 20px;
+    align-items: center;
+    position: sticky;
+    top: 0;
 }
 header h1{
     display: inline-block;
     color: rgb(255, 255, 255);
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 200;
+    font-family: var(--primaryFont);
+    font-size: xx-large;
 
 }
 header .iconWrapper{
-    height: 60px;
-    width: 60px;
     display: flex;
-    margin-left: 85%;
-    margin-top: -15px;
 }
 header .basketIcon{
     padding: 3px;
-    background-color: white;
+    color: white;
     height: 60px;
     width: 60px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: xxx-large;
 }
-header .quantity{
-    font-weight: 300;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 28px;
-    width: 28px;
-    border-radius: 50%;
+header .quantityIcon{
     padding: 5px;
+    position: relative;
+    left: -30px;
+    height: 28px;
+    border-radius: 50%;
     color: white;
     background-color: red;
-    margin-left: -20px;
-    margin-top: 5px;
+    font-family:"roboto";
 }
-/****** Cart Styles ******/
+
+
+
+/****** 
+
+Cart Styles
+
+******/
 .cartOverlay{
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-color: black;
-    opacity: 50%;
     position: fixed;
+    inset: 0;
+    background: rgba(65, 70, 68, 0.5);    
     z-index: 1;
-    display: none;
+    visibility: hidden;
 }
-/* Menu and list items*/
-.listOfFoods{
+.cartOverlay.active{
+    visibility: visible;
+}
+.cartMenu.active{
+    transform:none;
+}
+.cartMenu{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    background-color: var(--menuCart);
+    z-index: 2;
+    transition: 0.5s;
+    opacity: 100%; 
+    transform: translateX(100%);
+}
+.cartHeader{
+    margin-top:5px;
+    padding: 5px;;
+}
+.cartHeader h1{
+    font-family: Roboto;
+    font-weight: 600;
+    display: block;
+    margin: 0px auto;
+    width: fit-content;
+    padding: 5px;
+    border-bottom: 3px solid var(--primary);
+}
+.cartHeader i{
+    width: fit-content;
+    height: fit-content;
+    font-size: x-large;
+    color: var(--closeCart);
+    cursor: pointer;
+}
+.cartHeader i:hover{
+    width: fit-content;
+    height: fit-content;
+    font-size: x-large;
+    color: var(--primary);
+    cursor: pointer;
+}
+.emptyCartDesc{
+    width :100%;
+    height: 200px;
+
+    margin-top: 50%;
+}
+.emptyCartDesc i{
+    display: block;
+    font-size: 70px;
+    color: rgb(155, 155, 155);
+    text-align: center;
+    margin: auto;
+}
+.emptyCartDesc h1{
+    font-family: "Roboto", serif;
+    font-weight: 100;
+    font-style: normal;  
+    text-align: center;
+    color: var(--primary);
+}
+.shoppingItems{
+    height: 75%;
+    overflow-y: scroll;
+    background-color: var(--menuCart);
+    border-bottom: 2px solid black;
+}
+.cartItem{
+    padding: 10px;
+    margin: 10px;
+    background-color: var(--decrement);
     border-radius: 15px;
-    width: 80%;
+}
+.cartItemDesc{
+    display: flex;
+    justify-content: space-between;
+}
+.cartItemDesc i{
+    font-size: x-large;
+    color: red;
+    cursor: pointer;
+    margin-bottom: -30px;
+}
+.cartItemDesc i:hover{
+    color: #b60404;
+}
+.cartItemDesc img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.cartItemDesc h3{
+    font-family: roboto;
+    margin: auto 10px;
+    display: block;;
+}
+.quantityContainer{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px 0;
+}
+.quantityContainer button{
+    background-color: var(--primary);
+    color: var(--menuCart);
+    font-weight: 300;
+    font-size: 20px;
+    border-radius: 18px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+.quantityContainer button:hover{
+    background-color: var(--increment);
+    color: white;
+}
+.quantityContainer .amount{
+    text-align: center;
+    padding: 5px;
+    font-size: x-large;
+    color: white;
+
+}
+.cartItemPriceContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cartItemPrice{
+    font-family: monospace;
+    font-size: x-large;
+    color:black;
+    display: inline-block;
+    margin-left: 10px;
+}
+.cartItemAmount{
+    display: inline;
+    background-color: black;
+    font-size: larger;
+    color: white;
+    font-family: monospace;
+    border-radius: 10px;
+    padding: 5px;
+}
+.cartButtonsContainer{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    border: 1px solid black;
+    display: flex;
+}
+.cartButtonsContainer button{
+    width: 50%;
+    height: 100%;
+    border: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.cartButtonsContainer .clearCartBtn{
+    background-color: var(--increment);
+}
+.cartButtonsContainer .clearCartBtn:hover{
+    background-color: var(--decrement);
+}
+
+.checkoutBtn{
+    background-color: var(--primary);
+
+}
+.checkoutBtn:hover{
+    background-color: var(--decrement);
+}
+.cartTotalDesc{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+.cartTotalDesc h1{
+    font-family: roboto;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+/**********      
+Menu and food list items
+**********/
+
+.listOfFoods{
+    max-width: 1100px;
     height: auto;
     margin: 50px auto;
-    padding: 30px;
-    background-color: beige;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    list-style-type: none;
-    gap: 10px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: var(--menuCart);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+
 }
-menu .itemCard{
+.menuItem{
+    width: 100%;
+    height: auto;
     border-radius: 10px;
-    padding: 10px;
-    align-items: stretch;
-    text-align: center;
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: 1/5;
     background-color: white;
+    padding: 10px;
+    display: grid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-menu img{
+.menuItem img{
+    width: 100%;
+    height: 200px;
     border-radius: 5px;
-    max-width: 100%;
-    display: block;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
-menu h4{
-    font-family: Arial, Helvetica, sans-serif;
+.menuItem h3{
+    font-family: roboto;
+    font-weight: normal;
 }
-menu p {
-    font-family:Arial, Helvetica, sans-serif;
+.menuItem .cost{
+    font-family: roboto;
+    font-size: larger;
 }
-menu .itemPrice{
-    margin-left: 50%;
-    color: rgb(157, 85, 244);
-}
-menu .orderBtn {
-    border-radius: 20px;
-    width: 90%;
+.menuItem .itemButtons {
+    display: flex;
+    width: 100%;
     height: 35px;
-    margin: auto;
-    border: none;
-    background-color: rgb(157, 85, 244);
-    color: white;
     text-transform: uppercase;
+    justify-content: center;
 
 }
-menu .itemCard:hover{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.itemButtons div{
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+}
+.decrement{
+    background-color:var(--decrement);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+.increment{
+    background-color: var(--increment);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+.itemButtons .quantity{
+    border:1px solid black;
+    font-weight: 600;
+    padding: 8px;;
+}
+.menuItem .itemDesc{
+display: flex;
+justify-content: space-between;
+margin: 20px 5px;
+}
+.menuItem:hover{
+    box-shadow: 0 15px 20px 10px rgba(0, 0, 0, 0.25), 0 10px 50px 0 rgba(0, 0, 0, 0.25);
 }
 
-menu .orderBtn:hover{
-    background-color: #7c33f9a2;
-}
- /* List of drinks */
+.increment:hover{
+    background-color: var(--secondary);
 
+}
+.decrement:hover{
+    background-color:var(--secondary)
+}
+
+
+footer{
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+footer .socialMedias{
+    margin: 10px;
+    font-size: xx-large;
+    cursor: pointer;
+}
+footer .socialMedias i:hover{
+    color: var(--menuCart);
+}
+footer h3{
+    color: white;
+    font-family: var(--primaryFont);
+}
 
