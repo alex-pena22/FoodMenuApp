@@ -30,11 +30,10 @@ function showCart(){
     // console.log('cart is open');
 };
 function hideCart(){
-    cartOverlay.classList.remove('active');
+    cartOverlay.classList.toggle('active');
     cartMenu.classList.remove('active');
     // console.log('cart is closed');
 };
-
 /////////////////////////////
 ///Generate the Items on the Menu and program the buttons to add items to the cart and save the items to the cart
 /////////////////////////////
@@ -194,8 +193,8 @@ generateCartItems();// invoke to generate all items to the cart
 let totalAmount = () => {
     if (basket.length !== 0){
         let amount = basket.map((x) => {
-        let { item,id } = x;
-        let search = foodItems.find((y) => y.id === id) || [];
+            let { item,id } = x;
+            let search = foodItems.find((y) => y.id === id) || [];
         return item * search.price 
         }).reduce((x,y)=>x+y,0).toFixed(2);
         totalCost.innerHTML = `$${amount}`
@@ -223,26 +222,45 @@ let removeItem = (id) => {
 // Set the basket to Zero - and Close the shopping with proper generators
 //////////////////////////////
 let clearCart = () => {
-    closeShoppingCart.click()
     basket = [];
     generateCartItems();
     generateMenu();
     localStorage.setItem('cartData', JSON.stringify(basket));
     totalCost.innerHTML =`$0.00`
     calucateTotalItems();
+    closeShoppingCart.click();
 };
+
 
 let checkOut = () => {
     if(basket.length === 0){
-        alert('Your cart is empty! Please add items to your cart to checkout');
+        return
     }
     else{
+        cartMenu.classList.remove('active');
+        cartOverlay.style.backgroundColor = 'rgb(18 19 19 / 86%)';
         let amount = basket.map((x) => {
             let { item,id } = x;
             let search = foodItems.find((y) => y.id === id) || [];
-            return item * search.price 
-            }).reduce((x,y)=>x+y,0).toFixed(2); ``
-        clearCart();
-        alert("Your order of $"+ amount +" is being proccessed. Thank you for shopping with eFood!");
+            return item * search.price
+        }).reduce((x,y)=>x+y,0).toFixed(2);
+        
+        setTimeout(() => {
+            cartOverlay.innerHTML = `
+                <div class="checkoutMsgContainer">
+                    <i class="bi bi-check2-circle"></i>
+                    <h1>Thank you for eating with us</h1>
+                    <h3>Your order of <span class="checkOutAmount"> $${amount}</span> has been placed</h3>
+                    <button onclick="backToHome()"> Back to Home</button>
+                </div>
+            `;
+        }, 2000);
     }
+};
+
+
+let backToHome = () => {
+    basket = [];
+    localStorage.setItem("cartData", JSON.stringify(basket));
+    location.reload();
 };

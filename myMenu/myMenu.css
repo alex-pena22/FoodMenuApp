@@ -6,6 +6,7 @@
     --menuCart: #e0e1dd;    /* var(--menuCart)  */
     --closeCart: #6c757d;    /* var(--closcart)  */
     --primaryFont: roboto;  /* var(--primaryFont) */
+    --checkOut: #38b000;     /* var(--checkOut) */
 }
 
 *{
@@ -342,6 +343,13 @@ Menu and food list items
     font-weight: 600;
     cursor: pointer;
 }
+.increment:hover{
+    background-color: var(--secondary);
+
+}
+.decrement:hover{
+    background-color:var(--secondary)
+}
 .itemButtons .quantity{
     border:1px solid black;
     font-weight: 600;
@@ -356,14 +364,60 @@ margin: 20px 5px;
     box-shadow: 0 15px 20px 10px rgba(0, 0, 0, 0.25), 0 10px 50px 0 rgba(0, 0, 0, 0.25);
 }
 
-.increment:hover{
-    background-color: var(--secondary);
-
+/**********      
+CHECKOUT STYLES
+**********/
+.checkoutMsgContainer{
+    width: 800px;
+    border: 1px solid black;
+    margin: 15% auto;
+    background-color: var(--menuCart);
 }
-.decrement:hover{
-    background-color:var(--secondary)
+.checkoutMsgContainer i{
+    display: block;
+    font-size: 70px;
+    color: var(--checkOut);
+    text-align: center;
+    margin-top:20px ;
+}
+.checkoutMsgContainer h1{
+    font-family: "Roboto", serif;
+    font-weight: 100;
+    font-style: normal;  
+    text-align: center;
+    color: var(--primary);
+}
+.checkoutMsgContainer h3{
+    font-family: "Roboto", serif;
+    font-weight: 200;
+    font-style: normal;  
+    text-align: center;
+    color: var(--primary);
+    margin-top: 25px;
+}
+.checkoutMsgContainer span{
+    font-family: "Roboto", serif;
+    font-weight: 600;
+    font-style: normal;  
+    text-align: center;
+    color: var(--primary);
+}
+.checkoutMsgContainer button{
+    width: 25%;
+    height: 50px;
+    color: white;
+    font-family: Roboto;
+    border-radius: 5px;
+    font-weight: 300;
+    text-transform: uppercase;
+    background-color: var(--primary);
+    margin: 20px 36%;
+    cursor: pointer;
 }
 
+/**********      
+FOOTER STYLES
+**********/
 
 footer{
     background-color: var(--primary);
