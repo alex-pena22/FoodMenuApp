@@ -42,7 +42,7 @@ let generateMenu = () => {
     // let {id,name,image,price} = item;
     return (listOfFoods.innerHTML = 
         foodItems.map((x) => {
-            let {id,name,image,price} = x;
+            let {id,name,image,price,info} = x;
             let search = basket.find((x)=> x.id === id) || [];
             return `
             <li class="menuItem">
@@ -50,6 +50,10 @@ let generateMenu = () => {
                 <div class="itemDesc">
                     <h3>${name} </h3>
                     <p class="cost">$${price}</p>
+                </div>
+                <div class="itemInfo">
+                    <h4>Desc</h4>
+                    <p> ${info}</p>
                 </div>
                 <div class="itemButtons"> 
                     <div onclick=decrement(${id}) class="decrement">
@@ -228,17 +232,20 @@ let clearCart = () => {
     localStorage.setItem('cartData', JSON.stringify(basket));
     totalCost.innerHTML =`$0.00`
     calucateTotalItems();
-    closeShoppingCart.click();
 };
 
 
 let checkOut = () => {
     if(basket.length === 0){
-        return
+        let cartIcon = document.querySelector('.bi-cart-x');
+        cartIcon.style.animation = 'rotateCartIcon 0.5s ease';
+        setTimeout(() => {
+            cartIcon.style.animation = ''; // Reset animation after it completes
+        }, 500)
     }
     else{
         cartMenu.classList.remove('active');
-        cartOverlay.style.backgroundColor = 'rgb(18 19 19 / 86%)';
+        cartOverlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
         let amount = basket.map((x) => {
             let { item,id } = x;
             let search = foodItems.find((y) => y.id === id) || [];
@@ -249,7 +256,7 @@ let checkOut = () => {
             cartOverlay.innerHTML = `
                 <div class="checkoutMsgContainer">
                     <i class="bi bi-check2-circle"></i>
-                    <h1>Thank you for eating with us</h1>
+                    <h1>Thank you for choosing eFood!</h1>
                     <h3>Your order of <span class="checkOutAmount"> $${amount}</span> has been placed</h3>
                     <button onclick="backToHome()"> Back to Home</button>
                 </div>
