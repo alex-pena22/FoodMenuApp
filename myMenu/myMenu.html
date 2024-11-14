@@ -23,12 +23,17 @@
             </div>
         </header>
 
-
-
+        <div class="banner">
+            <div class="msgCont">
+                <h1>From our kitchen to your table, let us make every meal a celebration of taste and convenience.</h1>
+                <!-- <img src="./imgs/banner.jpg" alt=""> -->
+                </div>
+            <div class="imgCont"></div>
+        </div>
 
         <!--Shooping Cart Menu Styles-->
         <div class="cartOverlay"></div> 
-            <section class="cartMenu">
+        <section class="cartMenu">
                 <div class="cartHeader">
                     <i class="bi bi-x-square-fill closeCartBtn"></i>
                     <h1>Your Cart Items</h1>
@@ -36,7 +41,7 @@
 
         <!-- ///////////////// -->
                 <div id="shoppingItems" class="shoppingItems">
-                    <!-- itemd generated through js localbasket and added to cart -->
+                <!-- a check will be done on local storage if it contains items, then items generate inside this div -->
                 </div>
 
                 <!-- Total Bill -->
@@ -50,13 +55,13 @@
                     <button onclick="clearCart()" class="clearCartBtn">Clear</button>
                     <button  onclick="checkOut()" class="checkoutBtn">Checkout</button>
                 </div>
-            </section>       
+        </section>       
         
 
 
-            <!-- Menu Wrapper -->
+        <!-- Menu Wrapper -->
         <menu  class="listOfFoods">
-            <!-- Genenrate the menu with JS map() functions -->
+            <!-- generatesMenu() generates all the ites in the FoodDataBase.js file  -->
         </menu>
         
 

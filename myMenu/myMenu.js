@@ -34,12 +34,14 @@ function hideCart(){
     cartMenu.classList.remove('active');
     // console.log('cart is closed');
 };
+
+
+
+
 /////////////////////////////
 ///Generate the Items on the Menu and program the buttons to add items to the cart and save the items to the cart
 /////////////////////////////
 let generateMenu = () => {
-    // console.log('generating menu');
-    // let {id,name,image,price} = item;
     return (listOfFoods.innerHTML = 
         foodItems.map((x) => {
             let {id,name,image,price,info} = x;
@@ -126,7 +128,6 @@ let decrement = (id) => {
 let update = (id) => {
     if (basket.length === 0) return;
     let search = basket.find((x) => x.id === id);
-    // console.log(search.item)
     document.getElementById(id).innerHTML = search.item;
     calucateTotalItems();
     totalAmount();
