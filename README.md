@@ -6,17 +6,18 @@
 ![Static Badge](https://img.shields.io/badge/DOM-grey)
 
 
-<img width="2400" alt="Screenshot 2025-01-12 at 6 20 13 PM" src="https://github.com/user-attachments/assets/707ded8d-4a10-471f-b30f-7349a2ac56c6" />
+<img width="2400" alt="bannerSS" src="https://github.com/user-attachments/assets/707ded8d-4a10-471f-b30f-7349a2ac56c6" />
 
-> EFood was developed using HTML,CSS, and JS.
-> the idea of making this app was to create an online food ordering app
+> EFood was simple app developed using HTML,CSS, and JS.
+> the idea of making was to create an online food ordering app clone like
 > without using any frameworks. Instead, use the browsers localStorage to 
-> generate the menu and shopping cart and store the data locally.
+> store the data locally generate the menu and shopping cart.
+> Also for a cool resume project that I wanted to make to show case my skills. 
 
 ## Features
 
-- Open an close or add items to the shopping cart.
-- Mobile responsive friendly.
+- Open and close to the shopping cart of items added or removed.
+- The app is mobile/tablet responsive.
 
 <img width="400" alt="incDec" src="https://github.com/user-attachments/assets/2bad4fee-4315-4b8f-9d93-7ed2d5aee9b1" />
 <img width="400" alt="cartSS" src="https://github.com/user-attachments/assets/4ebd5292-1414-4dbd-8c5d-ca06dcdcd246" />
@@ -31,25 +32,30 @@
 
 open source and programming languages that makes the app work properly:
 
-- HTML5 - HTML5for the markup 
-- CSS - for styling and adding colors
-- JavaScript - to manipulate the DOM using arrow functions to serve to the client 
-- [Bootstrap](https://getbootstrap.com/.com) - adding icons and styles 
-- [gitHub](https://.github.com) - github for open source storage and download
+- HTML5 - HTML5 for the marku.
+- CSS - for styling and adding colors.
+- JavaScript - to manipulate the DOM using arrow functions and serve the app. 
+- [Bootstrap](https://getbootstrap.com/.com) - for icons and styles. 
+- [gitHub](https://.github.com) - github for open source storage and download.
 
 
 And of course efood itself is open source with a public repository on [GitHub](https://github.com/alex-pena22/FoodMenuApp.git) if you would like to add contributions.
 
  
 ## Installation
-You can download the zip file https://github.com/alex-pena22/FoodMenuApp.git and click the green code button and click download Zip file.
 
-<img width="200" src="/Users/alex/Desktop/Developement/eFood/zipfileSS.png">
+You can download the zip a file by scrolling to the top and clicking the green CODE button then "download ZIP file"
+nagivating to the efood/app/myMenu.html file and double clicking on it to pen the browser to run the app.
+
+<img width="290" alt="zipfileSS" src="https://github.com/user-attachments/assets/80e9d251-f4ec-4ae7-ae5b-f334f38d36e6" />
 
 or ..
 
 Open your favorite Terminal and run these commands to clone the repo 
 locally on your computers desktop and run the myMenu.html file.
+
+> you will need a [github](https://github.com) account to be able to clone it 
+> and run the  next commands.
 
 ```sh
    git clone https://github.com/alex-pena22/FoodMenuApp.git
@@ -61,7 +67,7 @@ then run the open command to promt up your browser and run the myMenu.html file.
 ```sh
 open myMenu.html
 ```
-## 
+
 ## liscense
 
 [Bootsrap](https://getbootstrap.com/.com)
