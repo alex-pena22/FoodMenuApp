@@ -1,29 +1,25 @@
-// Purpose is  To create a menu for the user to select and add items to a cart 
-// and then display the items in the cart and allow the user to remove items from the cart
 
-
-
-//// BASKET[] array to store the items in the cart Using local storage
+//// BASKET[] array to store the items in the cart Using the browsers local storage
 let basket = JSON.parse(localStorage.getItem('cartData')) || [];
 
 // HTMl Elements
+let menuItems = document.querySelector('.menuItems')
 let openShoppingCart = document.querySelector('.iconWrapper')
 let closeShoppingCart = document.querySelector('.closeCartBtn')
-let listOfFoods = document.querySelector('.listOfFoods')
 
 let cartOverlay = document.querySelector('.cartOverlay')
 let cartMenu = document.querySelector('.cartMenu')
 
-// let cartItems = document.querySelector('.cartItems')
+
 let shoppingItems = document.getElementById('shoppingItems')
 let totalCost = document.getElementById('totalCost')
 
 
-/// event listeners to open and close the cart
+/// Event listeners to open and close the shopping cart
 openShoppingCart.addEventListener("click", showCart);
 closeShoppingCart.addEventListener("click", hideCart);
 
-///// Toogle funtion for the cart
+// Toogle funtions for the cart menu
 function showCart(){
     cartOverlay.classList.toggle('active');
     cartMenu.classList.toggle('active');
@@ -39,10 +35,10 @@ function hideCart(){
 
 
 /////////////////////////////
-///Generate the Items on the Menu and program the buttons to add items to the cart and save the items to the cart
+/// Generate the all items from the foodDatabase js File
 /////////////////////////////
 let generateMenu = () => {
-    return (listOfFoods.innerHTML = 
+    return (menuItems.innerHTML = 
         foodItems.map((x) => {
             let {id,name,image,price,info} = x;
             let search = basket.find((x)=> x.id === id) || [];
@@ -54,7 +50,6 @@ let generateMenu = () => {
                     <p class="cost">$${price}</p>
                 </div>
                 <div class="itemInfo">
-                    <h4>Desc</h4>
                     <p> ${info}</p>
                 </div>
                 <div class="itemButtons"> 
@@ -78,7 +73,7 @@ generateMenu();
 
 
 /////////////////////////////
-// Increment function to ADD items to the cart
+// Increment function find and add items to the localstorage(basket)
 /////////////////////////////
 let increment = (id) => {
     let selectedItem = id
@@ -102,28 +97,31 @@ let increment = (id) => {
 
 
 /////////////////////////////
-/// Decrement function to REMOVE items from the cart
+/// Decrement function to REMOVE items from the basket
 /////////////////////////////
 let decrement = (id) => {
     // console.log(basket)
     let selectedItem = id
     let search = basket.find((x) => x.id === selectedItem.id);
+
     if(search === undefined) return;// if the item is not in the cart return the empty cart array
-    if(search.item === 0 ) return; // if the item is 0 return the empty cart array
+    if(search.item === 0 ) return; // if the item is 0 return the empty cart 
     else {
-        search.item -= 1;//else decrement the quantity of the item in the cart
+        search.item -= 1; // otherwise decrement the selectd item
     }
-    update(selectedItem.id);   // update the NEW quantity of the item in the cart
-    basket = basket.filter((x) => x.item !== 0); // filter and find all the items that have a quantity of 0
     
-    localStorage.setItem('cartData', JSON.stringify(basket));// if any item is zero save the changes to the local storage
-    generateCartItems();// then generate the items in the cart again to show the changes made
+    update(selectedItem.id);   // update the NEW quantity of the item in the cart
+    
+    basket = basket.filter((x) => x.item !== 0); // update the basket for any item at 0 qty or cleared basket
+    localStorage.setItem('cartData', JSON.stringify(basket));
+    
+    generateCartItems();// then generate cart again to show the changes made to the item
 };
 
 
 
 /////////////////////////////
-// Update the amount of items in the cart if equal to zero
+// Update the localstorage(basket) if any added or removed items
 //////////////////////////////
 let update = (id) => {
     if (basket.length === 0) return;
@@ -145,9 +143,10 @@ let calucateTotalItems = () => {
 calucateTotalItems(); // invoke so that the items red cart item is displaying the correct amount of items in the cart
 
 
-/////////////////////////////
-// Generate the items in the cart if nothing render proper innerHTML
-//////////////////////////////
+/*** ////////////////////////////
+Wether added or removed generate all items in the basket 
+into the ShoppingCart.
+/***/////////////////////////////
 let generateCartItems = () => {
     if(basket.length !== 0){
         // console.log('cart is not empty');
@@ -192,9 +191,10 @@ let generateCartItems = () => {
 generateCartItems();// invoke to generate all items to the cart
 
 
-/////////////////////////////
-// Generate the Total amount and invoke all generators requried
-//////////////////////////////
+/*** ////////////////////////////
+Total amount adds the price per item
+found in the basket to display a Net Total
+/***/////////////////////////////
 let totalAmount = () => {
     if (basket.length !== 0){
         let amount = basket.map((x) => {
@@ -209,9 +209,10 @@ let totalAmount = () => {
 totalAmount();
 
 
-/////////////////////////////
-// Generate the Total amount and invoke all generators requried
-//////////////////////////////
+/*** ////////////////////////////
+Remove funtion deletes the item from cart when trash icon clicked 
+and updates the basket and the items on menu.
+/***/////////////////////////////
 let removeItem = (id) => {
     let selectedItem = id;
         basket = basket.filter((x) => x.id !== selectedItem.id);
@@ -223,9 +224,9 @@ let removeItem = (id) => {
 };
 
 
-/////////////////////////////
-// Set the basket to Zero - and Close the shopping with proper generators
-//////////////////////////////
+/*** ////////////////////////////
+Clear cart clears the entire cart and basket
+/***/////////////////////////////
 let clearCart = () => {
     basket = [];
     generateCartItems();
@@ -235,8 +236,11 @@ let clearCart = () => {
     calucateTotalItems();
 };
 
-
-let checkOut = () => {
+/*** ////////////////////////////
+    CheckOut method animates a "procc" in the basket
+    otherwise the shopping cart animates an empty cart indication
+/***/////////////////////////////
+let processcheckOut = () => {
     if(basket.length === 0){
         let cartIcon = document.querySelector('.bi-cart-x');
         cartIcon.style.animation = 'rotateCartIcon 0.5s ease';
@@ -266,6 +270,11 @@ let checkOut = () => {
     }
 };
 
+/*** ///////////////////////////
+after the checkOut triggers
+Back to home clears the basket
+and takes you back a fresh empty menu
+/***////////////////////////////
 
 let backToHome = () => {
     basket = [];

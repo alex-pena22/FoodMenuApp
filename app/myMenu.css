@@ -301,10 +301,10 @@ display: flex;
 }
 
 /**********      
-Menu and food list items
+Menu on items
 **********/
 
-.listOfFoods{
+.menuItems{
     max-width: 1100px;
     height: auto;
     margin: 50px auto;
