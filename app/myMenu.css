@@ -543,3 +543,10 @@ footer h3{
     }
 
 }
+/* .shoppingItems */
+@media screen and (max-width: 800px) {
+    .shoppingItems {
+        height: 70%;
+    }
+
+}
