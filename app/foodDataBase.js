@@ -52,7 +52,7 @@ const foodItems = [
         id:"iopuio",
         name:" Greens Salad",
         price: 6.99,
-        image:"imgs/food/Salad.jpeg",
+        image:"imgs/food/salad.jpeg",
         info:"Mixed greens, cherry tomatoes, cucumbers, and balsamic vinaigrette."
     },
     {
