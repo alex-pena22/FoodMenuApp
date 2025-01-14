@@ -118,7 +118,7 @@ Cart Styles
     position: fixed;
     top: 0;
     right: 0;
-    width: 385px;
+    width: 400px;
     height: 100%;
     background-color: var(--menuCart);
     z-index: 2;
@@ -126,6 +126,11 @@ Cart Styles
     opacity: 100%; 
     transform: translateX(100%);
 }
+@media screen and (max-width: 800px) {
+    .cartMenu {
+      width: 255px; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+  }
 .cartHeader{
     margin-top:5px;
     padding: 5px;;
@@ -208,6 +213,7 @@ display: flex;
     margin: auto 10px;
     display: block;;
 }
+
 .quantityContainer{
     width: 30%;
     height: 100%;
@@ -482,3 +488,58 @@ footer h3{
     font-family: var(--primaryFont);
 }
 
+/**** Resonsive queries *****/
+ 
+/* shopping cart */
+@media screen and (max-width: 800px) {
+    .cartItemDesc h3 {
+        font-size: small;
+    }
+
+}
+/* shopping cart trash icon items */  
+@media screen and (max-width: 800px) {
+    .cartItemDesc i {
+        font-size: large;
+    }
+
+}  
+/* increase and descrease button */    
+@media screen and (max-width: 800px) {
+    .quantityContainer button {
+    background-color: var(--primary);
+    height: fit-content;
+    margin: 6px 0px;
+    color: var(--menuCart);
+    font-size: 20px;
+    border-radius: 18px;
+    order: none;
+    cursor: pointer;
+    }
+
+}
+/* chekout container */
+@media screen and (max-width: 800px) {
+    .checkoutMsgContainer {
+        width: 249px;
+        border-radius: 15px;
+    }
+
+}
+/* .checkoutMsgContainer button */
+@media screen and (max-width: 800px) {
+    .checkoutMsgContainer button {
+        width: 50%;
+        height: 50px;
+        cursor: pointer;
+        margin: 25px 25%;
+    }
+
+}
+/* .checkoutContainer h3 */
+@media screen and (max-width: 800px) {
+    .checkoutMsgContainer h3 {
+        padding: 0px 5px;
+    }
+
+}
